@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TradeLite | Secure Checkout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary": "#D1855C", "primary-dark": "#b36d46", "secondary": "#AAC4F5", "background-light": "#F8FAFB", "background-dark": "#0a0f10" }, fontFamily: { "sans": ["'Inter'", "sans-serif"] }, borderRadius: { "px": "1px", "xs": "2px", "sm": "4px", "DEFAULT": "8px", "lg": "12px", "xl": "16px", "2xl": "24px", "3xl": "32px", "full": "9999px" }, }, }, }
+  </script>
+</head>
+<body class="bg-[var(--color-background)]">
+  
+  <nav class="sticky top-0 z-[100] w-full bg-white border-b border-slate-200 px-4 md:px-8 h-16 flex items-center justify-between shadow-sm">
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center">
+        <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+      </div>
+      <span class="font-bold text-lg tracking-tight text-slate-900">TradeLite</span>
+    </a>
+    <div class="flex items-center gap-1.5 bg-green-50 text-success text-[10px] sm:text-xs font-bold px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-green-200">
+      <span class="material-symbols-outlined text-[16px]">lock</span>
+      SECURE SSL ENCRYPTION
+    </div>
+  </nav>
+
+  <main class="max-w-6xl mx-auto w-full px-4 md:px-8 py-8 md:py-12">
+    <div class="flex flex-col lg:flex-row gap-8 lg:gap-12" id="checkout-container">
+      
+      <!-- Left: Contact Details -->
+      <div class="flex-1">
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+          <h2 class="text-xl font-bold tracking-tight text-slate-900 mb-8 flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-slate-100 text-primary flex items-center justify-center">
+              <span class="material-symbols-outlined text-[20px]">person</span>
+            </div>
+            Contact Details
+          </h2>
+
+          <form id="checkout-form" class="space-y-6">
+            <div class="space-y-2">
+              <label class="block text-sm font-bold text-slate-700">Full Name <span class="text-red-500">*</span></label>
+              <input type="text" id="cust-name" placeholder="Enter your full name" required class="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors text-sm font-medium outline-none">
+              <p class="hidden text-xs text-red-500 font-bold" id="err-name">Please enter your name</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="block text-sm font-bold text-slate-700">WhatsApp Number <span class="text-red-500">*</span></label>
+                <div class="relative flex items-center">
+                  <span class="absolute left-3 material-symbols-outlined text-slate-400">call</span>
+                  <input type="tel" id="cust-phone" placeholder="e.g. +91 9876543210" required class="w-full bg-white border border-slate-200 rounded-lg pl-10 pr-4 py-3 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors text-sm font-medium outline-none">
+                </div>
+                <p class="text-xs text-slate-500 font-medium">Please include country code</p>
+                <p class="hidden text-xs text-red-500 font-bold" id="err-phone">Please enter a valid phone number</p>
+              </div>
+
+              <div class="space-y-2">
+                <label class="block text-sm font-bold text-slate-700">Email Address <span class="text-red-500">*</span></label>
+                <div class="relative flex items-center">
+                  <span class="absolute left-3 material-symbols-outlined text-slate-400">mail</span>
+                  <input type="email" id="cust-email" placeholder="you@example.com" required class="w-full bg-white border border-slate-200 rounded-lg pl-10 pr-4 py-3 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors text-sm font-medium outline-none">
+                </div>
+                <p class="hidden text-xs text-red-500 font-bold" id="err-email">Please enter a valid email address</p>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="block text-sm font-bold text-slate-700">Delivery Address <span class="text-red-500">*</span></label>
+              <textarea id="cust-address" rows="3" placeholder="Enter your full address" required class="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors text-sm font-medium outline-none resize-none"></textarea>
+              <p class="hidden text-xs text-red-500 font-bold" id="err-address">Please enter your address</p>
+            </div>
+
+            <div class="space-y-2">
+              <label class="block text-sm font-bold text-slate-700">Order Notes <span class="text-slate-400 font-normal">(Optional)</span></label>
+              <input type="text" id="cust-notes" placeholder="Any special instructions?" class="w-full bg-white border border-slate-200 rounded-lg px-4 py-3 placeholder:text-slate-400 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors text-sm font-medium outline-none">
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right: Summary -->
+      <div class="w-full lg:w-[420px] flex-shrink-0">
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8 sticky top-24">
+          <h2 class="text-xl font-bold tracking-tight text-slate-900 mb-6 flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-slate-100 text-primary flex items-center justify-center">
+              <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+            </div>
+            Order Summary
+          </h2>
+
+          <div id="checkout-items" class="space-y-4 mb-6">
+            <!-- Rendered by JS -->
+          </div>
+
+          <div class="border-t border-slate-100 pt-4 mb-4 space-y-3">
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-slate-500 font-medium">Subtotal</span>
+              <span class="font-bold text-slate-900" id="checkout-subtotal"></span>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-slate-500 font-medium">Shipping</span>
+              <span class="font-bold text-success">FREE</span>
+            </div>
+          </div>
+
+          <div class="border-t border-slate-200 pt-4 pb-6 flex items-center justify-between">
+            <span class="text-lg font-bold text-slate-900">Total</span>
+            <span class="text-2xl font-extrabold text-slate-900" id="checkout-total"></span>
+          </div>
+
+          <button id="btn-submit" class="w-full bg-primary hover:bg-primary-dark text-white rounded-full font-bold text-[17px] mt-2 mb-6 shadow-md transition-all active:scale-[0.98] flex items-center justify-center py-4 gap-2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" class="w-6 h-6 filter brightness-0 invert" alt="WA">
+            Place Order via WhatsApp
+          </button>
+          
+          <div class="flex items-center justify-center gap-2 text-[10px] font-bold text-slate-400 tracking-widest uppercase mb-8">
+            <span class="material-symbols-outlined text-[16px]">shield</span> END-TO-END ENCRYPTED CHECKOUT
+          </div>
+
+          <!-- How it works card -->
+          <div class="bg-slate-50 rounded-xl p-5 border border-slate-100">
+            <h3 class="flex items-center gap-2 font-bold text-slate-900 text-sm tracking-tight mb-2">
+              <span class="material-symbols-outlined text-primary text-[20px]">help</span>
+              How it works
+            </h3>
+            <p class="text-[13px] text-slate-600 font-medium leading-relaxed">We use WhatsApp to confirm orders. Clicking the button opens your WhatsApp with your order details pre-filled. Just click send to finalize!</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  
+  <script type="module" src="js/pages/checkout.js"></script>
+</body>
+</html>

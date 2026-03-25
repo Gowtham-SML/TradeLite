@@ -1,0 +1,45 @@
+:root {
+  --color-primary: #D1855C;
+  --color-primary-dark: #b36d46;
+  --color-secondary: #AAC4F5;
+  --color-background: #F8FAFB;
+  --color-background-card: #ffffff;
+  --color-background-warm: #F4EDE9;
+  --color-surface: #fdfdfe;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #94a3b8;
+  --color-border: #e2e8f0;
+  --color-border-light: rgba(226, 232, 240, 0.6);
+  --color-dark-bg: #0a0f10;
+  --color-wa-green: #25D366;
+  --color-wa-green-dark: #20ba5a;
+  --color-badge-new: #D1855C;
+  --color-badge-sale: #ef4444;
+  --color-badge-bestseller: #1e293b;
+  --color-success: #22c55e;
+  --color-error: #ef4444;
+
+  /* Typography */
+  --font-sans: 'Inter', sans-serif;
+
+  /* Border Radius */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-default: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07);
+  --shadow-lg: 0 12px 24px -10px rgba(0,0,0,0.10);
+  --shadow-card-hover: 0 12px 24px -10px rgba(0,0,0,0.1);
+
+  /* Transitions */
+  --transition-base: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  --transition-img: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
